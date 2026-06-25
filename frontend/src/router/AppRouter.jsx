@@ -15,6 +15,13 @@ import MainLayout from "../layouts/MainLayout";
 import AdminLayout from "../layouts/AdminLayout";
 
 const router = createBrowserRouter([
+  // Default Route
+  {
+    path: "/",
+    element: <Login />,
+  },
+
+  // Auth
   {
     path: "/login",
     element: <Login />,
@@ -24,6 +31,7 @@ const router = createBrowserRouter([
     element: <Register />,
   },
 
+  // User
   {
     path: "/dashboard",
     element: (
@@ -57,6 +65,7 @@ const router = createBrowserRouter([
     ),
   },
 
+  // Admin
   {
     path: "/admin/dashboard",
     element: (
