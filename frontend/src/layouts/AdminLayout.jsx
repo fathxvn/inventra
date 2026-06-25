@@ -1,15 +1,15 @@
+import Sidebar from "../components/Sidebar";
+
 function AdminLayout({ children }) {
-    return (
-      <div>
-        <header>
-          <h2>Inventra Admin</h2>
-        </header>
-  
-        <main>
-          {children}
-        </main>
-      </div>
-    );
-  }
-  
-  export default AdminLayout;
+  return (
+    <div className="min-h-screen flex bg-gray-100">
+      <Sidebar />
+
+      <main className="flex-1 p-6">
+        {children}
+      </main>
+    </div>
+  );
+}
+
+export default AdminLayout;
