@@ -1,7 +1,7 @@
 function Dashboard() {
     return (
-      <div>
-        <h1>Dashboard Page</h1>
+      <div className="bg-red-500 text-white p-10 text-4xl">
+        TAILWIND BERHASIL
       </div>
     );
   }

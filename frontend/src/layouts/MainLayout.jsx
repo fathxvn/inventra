@@ -1,15 +1,14 @@
+import Navbar from "../components/Navbar";
+
 function MainLayout({ children }) {
-    return (
-      <div>
-        <header>
-          <h2>Inventra</h2>
-        </header>
-  
-        <main>
-          {children}
-        </main>
-      </div>
-    );
-  }
-  
-  export default MainLayout;
+  return (
+    <>
+      <Navbar />
+      <main className="p-6">
+        {children}
+      </main>
+    </>
+  );
+}
+
+export default MainLayout;
