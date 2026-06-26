@@ -13,6 +13,7 @@ import AdminBorrowRequests from "../pages/admin/AdminBorrowRequests";
 
 import MainLayout from "../layouts/MainLayout";
 import AdminLayout from "../layouts/AdminLayout";
+import ProtectedRoute from "../components/ProtectedRoute";
 
 const router = createBrowserRouter([
   // Default Route
@@ -35,33 +36,41 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: (
-      <MainLayout>
-        <Dashboard />
-      </MainLayout>
+      <ProtectedRoute>
+        <MainLayout>
+          <Dashboard />
+        </MainLayout>
+      </ProtectedRoute>
     ),
   },
   {
     path: "/items",
     element: (
-      <MainLayout>
-        <Items />
-      </MainLayout>
+      <ProtectedRoute>
+        <MainLayout>
+          <Items />
+        </MainLayout>
+      </ProtectedRoute>
     ),
   },
   {
     path: "/items/:id",
     element: (
-      <MainLayout>
-        <ItemDetail />
-      </MainLayout>
+      <ProtectedRoute>
+        <MainLayout>
+          <ItemDetail />
+        </MainLayout>
+      </ProtectedRoute>
     ),
   },
   {
     path: "/my-requests",
     element: (
-      <MainLayout>
-        <MyRequests />
-      </MainLayout>
+      <ProtectedRoute>
+        <MainLayout>
+          <MyRequests />
+        </MainLayout>
+      </ProtectedRoute>
     ),
   },
 
@@ -69,25 +78,31 @@ const router = createBrowserRouter([
   {
     path: "/admin/dashboard",
     element: (
-      <AdminLayout>
-        <AdminDashboard />
-      </AdminLayout>
+      <ProtectedRoute>
+        <AdminLayout>
+          <AdminDashboard />
+        </AdminLayout>
+      </ProtectedRoute>
     ),
   },
   {
     path: "/admin/items",
     element: (
-      <AdminLayout>
-        <AdminItems />
-      </AdminLayout>
+      <ProtectedRoute>
+        <AdminLayout>
+          <AdminItems />
+        </AdminLayout>
+      </ProtectedRoute>
     ),
   },
   {
     path: "/admin/borrow-requests",
     element: (
-      <AdminLayout>
-        <AdminBorrowRequests />
-      </AdminLayout>
+      <ProtectedRoute>
+        <AdminLayout>
+          <AdminBorrowRequests />
+        </AdminLayout>
+      </ProtectedRoute>
     ),
   },
 ]);
