@@ -1,14 +1,14 @@
 function AdminDashboard() {
-  const cards = [
+  const stats = [
     {
       title: "Total Barang",
       value: 120,
-      color: "bg-blue-600",
+      color: "bg-blue-500",
     },
     {
       title: "Total Pengguna",
-      value: 45,
-      color: "bg-green-600",
+      value: 75,
+      color: "bg-green-500",
     },
     {
       title: "Peminjaman Aktif",
@@ -18,7 +18,7 @@ function AdminDashboard() {
     {
       title: "Menunggu Persetujuan",
       value: 6,
-      color: "bg-red-600",
+      color: "bg-red-500",
     },
   ];
 
@@ -29,15 +29,21 @@ function AdminDashboard() {
       </h1>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {cards.map((card, index) => (
+        {stats.map((stat, index) => (
           <div
             key={index}
-            className={`${card.color} text-white rounded-xl p-6 shadow`}
+            className="bg-white rounded-xl shadow p-5"
           >
-            <h2 className="text-lg">{card.title}</h2>
+            <div
+              className={`w-12 h-12 rounded-lg ${stat.color} mb-4`}
+            ></div>
 
-            <p className="text-4xl font-bold mt-4">
-              {card.value}
+            <h2 className="text-gray-500">
+              {stat.title}
+            </h2>
+
+            <p className="text-3xl font-bold mt-2">
+              {stat.value}
             </p>
           </div>
         ))}

@@ -2,15 +2,24 @@ function AdminBorrowRequests() {
   const requests = [
     {
       id: 1,
-      user: "Arif",
-      item: "Laptop Asus",
+      borrower: "Budi Santoso",
+      item: "Laptop Asus VivoBook",
+      date: "2026-06-23",
       status: "Menunggu",
     },
     {
       id: 2,
-      user: "Budi",
+      borrower: "Siti Aminah",
       item: "Proyektor Epson",
-      status: "Menunggu",
+      date: "2026-06-22",
+      status: "Disetujui",
+    },
+    {
+      id: 3,
+      borrower: "Andi Pratama",
+      item: "Kamera Canon",
+      date: "2026-06-21",
+      status: "Ditolak",
     },
   ];
 
@@ -20,41 +29,80 @@ function AdminBorrowRequests() {
         Persetujuan Peminjaman
       </h1>
 
-      <table className="w-full bg-white shadow rounded-xl overflow-hidden">
-        <thead className="bg-gray-200">
-          <tr>
-            <th className="p-3">No</th>
-            <th className="p-3">Peminjam</th>
-            <th className="p-3">Barang</th>
-            <th className="p-3">Status</th>
-            <th className="p-3">Aksi</th>
-          </tr>
-        </thead>
+      <div className="bg-white rounded-xl shadow overflow-hidden">
 
-        <tbody>
-          {requests.map((request, index) => (
-            <tr key={request.id} className="border-t">
-              <td className="p-3">{index + 1}</td>
+        <table className="w-full">
 
-              <td className="p-3">{request.user}</td>
+          <thead className="bg-slate-800 text-white">
 
-              <td className="p-3">{request.item}</td>
-
-              <td className="p-3">{request.status}</td>
-
-              <td className="p-3 space-x-2">
-                <button className="bg-green-600 text-white px-3 py-1 rounded">
-                  Approve
-                </button>
-
-                <button className="bg-red-600 text-white px-3 py-1 rounded">
-                  Reject
-                </button>
-              </td>
+            <tr>
+              <th className="p-4 text-left">No</th>
+              <th className="p-4 text-left">Peminjam</th>
+              <th className="p-4 text-left">Barang</th>
+              <th className="p-4 text-left">Tanggal</th>
+              <th className="p-4 text-left">Status</th>
+              <th className="p-4 text-center">Aksi</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+
+          </thead>
+
+          <tbody>
+
+            {requests.map((request, index) => (
+
+              <tr
+                key={request.id}
+                className="border-b hover:bg-gray-50"
+              >
+                <td className="p-4">
+                  {index + 1}
+                </td>
+
+                <td className="p-4">
+                  {request.borrower}
+                </td>
+
+                <td className="p-4">
+                  {request.item}
+                </td>
+
+                <td className="p-4">
+                  {request.date}
+                </td>
+
+                <td className="p-4">
+                  {request.status}
+                </td>
+
+                <td className="p-4">
+
+                  <div className="flex justify-center gap-3">
+
+                    <button
+                      className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg"
+                    >
+                      Approve
+                    </button>
+
+                    <button
+                      className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg"
+                    >
+                      Reject
+                    </button>
+
+                  </div>
+
+                </td>
+
+              </tr>
+
+            ))}
+
+          </tbody>
+
+        </table>
+
+      </div>
     </div>
   );
 }

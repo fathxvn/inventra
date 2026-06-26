@@ -2,36 +2,23 @@ function MyRequests() {
   const requests = [
     {
       id: 1,
-      item: "Laptop Asus VivoBook",
-      date: "24 Juni 2026",
-      status: "Menunggu",
+      item: "Laptop Asus",
+      date: "2026-06-20",
+      status: "Disetujui",
     },
     {
       id: 2,
       item: "Proyektor Epson",
-      date: "20 Juni 2026",
-      status: "Disetujui",
+      date: "2026-06-22",
+      status: "Menunggu",
     },
     {
       id: 3,
       item: "Kamera Canon",
-      date: "18 Juni 2026",
+      date: "2026-06-23",
       status: "Ditolak",
     },
   ];
-
-  const getStatusColor = (status) => {
-    switch (status) {
-      case "Disetujui":
-        return "bg-green-100 text-green-700";
-      case "Menunggu":
-        return "bg-yellow-100 text-yellow-700";
-      case "Ditolak":
-        return "bg-red-100 text-red-700";
-      default:
-        return "bg-gray-100 text-gray-700";
-    }
-  };
 
   return (
     <div>
@@ -39,32 +26,28 @@ function MyRequests() {
         Pengajuan Saya
       </h1>
 
-      <div className="space-y-4">
-        {requests.map((request) => (
-          <div
-            key={request.id}
-            className="bg-white rounded-xl shadow p-5 flex justify-between items-center"
-          >
-            <div>
-              <h2 className="text-xl font-semibold">
-                {request.item}
-              </h2>
+      <table className="w-full bg-white shadow rounded-lg overflow-hidden">
+        <thead className="bg-blue-600 text-white">
+          <tr>
+            <th className="p-3 text-left">Barang</th>
+            <th className="p-3 text-left">Tanggal</th>
+            <th className="p-3 text-left">Status</th>
+          </tr>
+        </thead>
 
-              <p className="text-gray-500">
-                Tanggal: {request.date}
-              </p>
-            </div>
-
-            <span
-              className={`px-4 py-2 rounded-full font-semibold ${getStatusColor(
-                request.status
-              )}`}
+        <tbody>
+          {requests.map((request) => (
+            <tr
+              key={request.id}
+              className="border-b"
             >
-              {request.status}
-            </span>
-          </div>
-        ))}
-      </div>
+              <td className="p-3">{request.item}</td>
+              <td className="p-3">{request.date}</td>
+              <td className="p-3">{request.status}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }

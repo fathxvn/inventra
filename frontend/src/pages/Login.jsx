@@ -14,38 +14,30 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
+    setLoading(true);
+  
     try {
-      console.log(form);
-
-      // ==========================
-      // SIMULASI LOGIN SEMENTARA
-      // ==========================
-      login({
-        id: 1,
-        name: "Arif",
-        role: "user",
-      });
-
-      navigate("/dashboard");
-
-      /*
-      ===============================
-      NANTI JIKA BACKEND SUDAH JADI
-      ===============================
-
+  
       const response = await loginUser(form);
-
+  
       login(response.user);
-
-      localStorage.setItem("token", response.token);
-
+  
+      localStorage.setItem(
+        "token",
+        response.token
+      );
+  
       navigate("/dashboard");
-      */
-
+  
     } catch (error) {
-      console.error(error);
-      alert("Login gagal");
+  
+      alert(error.response?.data?.message || "Login gagal");
+  
+    } finally {
+  
+      setLoading(false);
+  
     }
   };
 

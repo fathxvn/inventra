@@ -1,18 +1,51 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 function ItemDetail() {
   const { id } = useParams();
 
   // Data dummy sementara
-  const item = {
-    id,
-    name: "Laptop Asus VivoBook",
-    category: "Elektronik",
-    stock: 5,
-    available: 3,
-    description:
-      "Laptop digunakan untuk kegiatan praktikum mahasiswa di laboratorium komputer.",
-  };
+  const items = [
+    {
+      id: 1,
+      name: "Laptop Asus VivoBook",
+      category: "Elektronik",
+      stock: 5,
+      description: "Laptop untuk kegiatan perkuliahan dan presentasi.",
+    },
+    {
+      id: 2,
+      name: "Proyektor Epson",
+      category: "Elektronik",
+      stock: 2,
+      description: "Proyektor untuk seminar dan rapat.",
+    },
+    {
+      id: 3,
+      name: "Kamera Canon",
+      category: "Multimedia",
+      stock: 4,
+      description: "Kamera DSLR untuk dokumentasi kegiatan kampus.",
+    },
+  ];
+
+  const item = items.find((barang) => barang.id === Number(id));
+
+  if (!item) {
+    return (
+      <div className="text-center mt-10">
+        <h2 className="text-2xl font-bold">
+          Barang tidak ditemukan
+        </h2>
+
+        <Link
+          to="/items"
+          className="mt-5 inline-block bg-blue-600 text-white px-5 py-3 rounded-lg"
+        >
+          Kembali
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-3xl mx-auto bg-white shadow rounded-xl p-8">
@@ -24,52 +57,43 @@ function ItemDetail() {
       <div className="space-y-4">
 
         <div>
-          <h2 className="font-semibold text-gray-700">
-            Nama Barang
-          </h2>
-
+          <strong>Nama Barang</strong>
           <p>{item.name}</p>
         </div>
 
         <div>
-          <h2 className="font-semibold text-gray-700">
-            Kategori
-          </h2>
-
+          <strong>Kategori</strong>
           <p>{item.category}</p>
         </div>
 
         <div>
-          <h2 className="font-semibold text-gray-700">
-            Total Stok
-          </h2>
-
+          <strong>Stok</strong>
           <p>{item.stock}</p>
         </div>
 
         <div>
-          <h2 className="font-semibold text-gray-700">
-            Stok Tersedia
-          </h2>
-
-          <p>{item.available}</p>
-        </div>
-
-        <div>
-          <h2 className="font-semibold text-gray-700">
-            Deskripsi
-          </h2>
-
+          <strong>Deskripsi</strong>
           <p>{item.description}</p>
         </div>
 
       </div>
 
-      <button
-        className="mt-8 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg"
-      >
-        Ajukan Peminjaman
-      </button>
+      <div className="flex gap-3 mt-8">
+
+        <button
+          className="bg-green-600 text-white px-5 py-2 rounded-lg"
+        >
+          Ajukan Peminjaman
+        </button>
+
+        <Link
+          to="/items"
+          className="bg-gray-500 text-white px-5 py-2 rounded-lg"
+        >
+          Kembali
+        </Link>
+
+      </div>
 
     </div>
   );
