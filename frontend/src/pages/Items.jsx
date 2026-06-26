@@ -4,35 +4,37 @@ function Items() {
   const items = [
     {
       id: 1,
-      name: "Laptop Dell",
+      name: "Laptop Asus VivoBook",
       category: "Elektronik",
-      available: true,
-      image:
-        "https://images.unsplash.com/photo-1496181133206-80ce9b88a853",
+      stock: 5,
     },
     {
       id: 2,
       name: "Proyektor Epson",
       category: "Elektronik",
-      available: false,
-      image:
-        "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a",
+      stock: 2,
     },
     {
       id: 3,
       name: "Kamera Canon",
       category: "Multimedia",
-      available: true,
-      image:
-        "https://images.unsplash.com/photo-1516035069371-29a1b244cc32",
+      stock: 4,
     },
   ];
 
   return (
-    <>
+    <div>
       <h1 className="text-3xl font-bold mb-6">
-        Daftar Inventaris
+        Daftar Barang
       </h1>
+
+      <div className="my-6">
+        <input
+          type="text"
+          placeholder="Cari barang..."
+          className="w-full md:w-96 border rounded-lg p-3"
+        />
+      </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {items.map((item) => (
@@ -42,7 +44,7 @@ function Items() {
           />
         ))}
       </div>
-    </>
+    </div>
   );
 }
 

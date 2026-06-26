@@ -2,12 +2,14 @@ import Sidebar from "../components/Sidebar";
 
 function AdminLayout({ children }) {
   return (
-    <div className="min-h-screen flex bg-gray-100">
+    <div className="flex">
+
       <Sidebar />
 
-      <main className="flex-1 p-6">
+      <main className="flex-1 bg-slate-100 min-h-screen p-8">
         {children}
       </main>
+
     </div>
   );
 }

@@ -14,6 +14,9 @@ import AdminBorrowRequests from "../pages/admin/AdminBorrowRequests";
 import MainLayout from "../layouts/MainLayout";
 import AdminLayout from "../layouts/AdminLayout";
 
+import ProtectedRoute from "../routes/ProtectedRoute";
+import NotFound from "../pages/NotFound";
+
 const router = createBrowserRouter([
   // Default Route
   {
@@ -35,9 +38,11 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: (
-      <MainLayout>
-        <Dashboard />
-      </MainLayout>
+      <ProtectedRoute>
+        <MainLayout>
+          <Dashboard />
+        </MainLayout>
+      </ProtectedRoute>
     ),
   },
   {
@@ -89,6 +94,10 @@ const router = createBrowserRouter([
         <AdminBorrowRequests />
       </AdminLayout>
     ),
+  },
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ]);
 

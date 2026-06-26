@@ -1,40 +1,78 @@
+import { useParams } from "react-router-dom";
+
 function ItemDetail() {
-    return (
-      <div className="bg-white p-6 rounded-xl shadow">
-        <img
-          src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853"
-          alt="Laptop"
-          className="w-full max-w-md rounded-lg"
-        />
-  
-        <h1 className="text-3xl font-bold mt-4">
-          Laptop Dell Latitude
-        </h1>
-  
-        <p className="text-gray-600 mt-2">
-          Laptop untuk kebutuhan akademik,
-          presentasi, dan kegiatan kampus.
-        </p>
-  
-        <div className="mt-4">
-          <p>
-            <strong>Kategori:</strong> Elektronik
-          </p>
-  
-          <p>
-            <strong>Kondisi:</strong> Baik
-          </p>
-  
-          <p>
-            <strong>Stok:</strong> 5 Unit
-          </p>
+  const { id } = useParams();
+
+  // Data dummy sementara
+  const item = {
+    id,
+    name: "Laptop Asus VivoBook",
+    category: "Elektronik",
+    stock: 5,
+    available: 3,
+    description:
+      "Laptop digunakan untuk kegiatan praktikum mahasiswa di laboratorium komputer.",
+  };
+
+  return (
+    <div className="max-w-3xl mx-auto bg-white shadow rounded-xl p-8">
+
+      <h1 className="text-3xl font-bold mb-6">
+        Detail Barang
+      </h1>
+
+      <div className="space-y-4">
+
+        <div>
+          <h2 className="font-semibold text-gray-700">
+            Nama Barang
+          </h2>
+
+          <p>{item.name}</p>
         </div>
-  
-        <button className="mt-6 bg-green-600 text-white px-6 py-3 rounded-lg">
-          Ajukan Peminjaman
-        </button>
+
+        <div>
+          <h2 className="font-semibold text-gray-700">
+            Kategori
+          </h2>
+
+          <p>{item.category}</p>
+        </div>
+
+        <div>
+          <h2 className="font-semibold text-gray-700">
+            Total Stok
+          </h2>
+
+          <p>{item.stock}</p>
+        </div>
+
+        <div>
+          <h2 className="font-semibold text-gray-700">
+            Stok Tersedia
+          </h2>
+
+          <p>{item.available}</p>
+        </div>
+
+        <div>
+          <h2 className="font-semibold text-gray-700">
+            Deskripsi
+          </h2>
+
+          <p>{item.description}</p>
+        </div>
+
       </div>
-    );
-  }
-  
-  export default ItemDetail;
+
+      <button
+        className="mt-8 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg"
+      >
+        Ajukan Peminjaman
+      </button>
+
+    </div>
+  );
+}
+
+export default ItemDetail;

@@ -1,11 +1,11 @@
 import api from "./api";
 
-export const createBorrowRequest = async (data) => {
-  const response = await api.post("/borrow-requests", data);
+export const getMyRequests = async () => {
+  const response = await api.get("/borrow/my");
   return response.data;
 };
 
-export const getMyRequests = async () => {
-  const response = await api.get("/borrow-requests/my");
+export const borrowItem = async (data) => {
+  const response = await api.post("/borrow", data);
   return response.data;
 };
